@@ -3,9 +3,7 @@ package com.api.crud.controllers;
 import com.api.crud.models.UserModel;
 import com.api.crud.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -21,6 +19,9 @@ public class UserController {
         return this.userService.getUsers();
     }
 
-
+    @PostMapping
+    public UserModel saveUser(@RequestBody UserModel user){
+        return this.userService.saveUser(user);
+    }
 
 }
